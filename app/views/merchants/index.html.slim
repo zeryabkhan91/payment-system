@@ -1,0 +1,16 @@
+table.table
+  thead
+    tr
+      th scope="col"  #
+      th scope="col"  Name
+      th scope="col"  Email
+      th scope="col"  Status
+      th scope="col"  Total Transaction
+  tbody
+    - @merchants.each do |merchant|
+        tr
+          th = merchant.id
+          td = merchant.name
+          td = merchant.email
+          td = merchant.status
+          td = merchant.total_transactions
