@@ -53,6 +53,7 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'devise'
 gem 'devise-jwt'
 gem 'interactor', '~> 3.0'
+gem 'rack-cors'
 gem 'slim'
 
 # Use Active Storage variants
