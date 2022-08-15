@@ -21,10 +21,7 @@ class Transaction < ApplicationRecord
     state :refunded
     state :error
 
-    event :approve do
-      after do
-        charge_transaction
-      end
+    event :approve, after: :charge_transaction do
       error do |_e|
         record_failed('ChargeTransaction')
       end
@@ -32,10 +29,7 @@ class Transaction < ApplicationRecord
       transitions from: :draft, to: :approved
     end
 
-    event :refund do
-      after do
-        refund_transaction
-      end
+    event :refund, after: :refund_transaction do
       error do |_e|
         record_failed('RefundTransaction')
       end
@@ -43,10 +37,7 @@ class Transaction < ApplicationRecord
       transitions from: :approved, to: :refunded
     end
 
-    event :reverse do
-      after do
-        reverse_transaction
-      end
+    event :reverse, after: :reverse_transaction do
       error do |_e|
         record_failed('ReversalTransaction')
       end
@@ -72,5 +63,6 @@ class Transaction < ApplicationRecord
     failed.type = type
     failed.status = 'error'
     failed.save
+    errors.add(:base, "#{type} can't")
   end
 end
