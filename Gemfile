@@ -48,10 +48,11 @@ gem 'bootsnap', require: false
 # Use Sass to process CSS
 gem 'sassc-rails'
 
+gem 'aasm'
 gem 'bootstrap', '~> 5.1.3'
-gem "interactor", "~> 3.0"
 gem 'devise'
 gem 'devise-jwt'
+gem 'interactor', '~> 3.0'
 gem 'slim'
 
 # Use Active Storage variants

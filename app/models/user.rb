@@ -16,13 +16,12 @@ class User < ApplicationRecord
   scope :merchants, -> { where(role: 'merchant') }
 
   def total_transactions
-    self.transactions.count
+    transactions.count
   end
 
   private
 
   def set_merchant_fields
-    self.password = Devise.friendly_token[0, 20] unless self.password
+    self.password = Devise.friendly_token[0, 20] unless password
   end
-
 end
