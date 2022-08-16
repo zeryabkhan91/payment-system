@@ -3,13 +3,13 @@
 class UpdateTransaction
   include Interactor
 
-  VALID_ACTIONS = %i[approve refund reverse]
+  VALID_ACTIONS = %i[approve refund reverse].freeze
 
   ACTIONS_ADAPTERS = {
     'approve' => 'approved',
     'refund' => 'refunded',
     'reverse' => 'reversed'
-  }
+  }.freeze
 
   def call
     transaction = Transaction.find_by(id: context.id)

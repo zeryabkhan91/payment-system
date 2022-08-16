@@ -11,7 +11,7 @@ class MerchantsController < ApplicationController
 
   def update
     if @merchant.update(merchant_params)
-      flash[:notice] = "Merchant updated Successfully"
+      flash[:notice] = 'Merchant updated Successfully'
     else
       flash[:alert] = @merchant.errors.full_messages.join
       redirect_to merchants_path
@@ -20,7 +20,7 @@ class MerchantsController < ApplicationController
 
   def destroy
     if @merchant.destroy
-      flash[:notice] = "Merchant deleted Successfully"
+      flash[:notice] = 'Merchant deleted Successfully'
     else
       flash[:alert] = @merchant.errors.full_messages.join
     end
@@ -31,10 +31,9 @@ class MerchantsController < ApplicationController
 
   def set_merchant
     @merchant = User.merchants.find_by(id: params[:id])
+    return if @merchant.present?
 
-    if @merchant.blank?
-      flash[:alert] = "No Merchant found with id #{params[:id]}"
-      redirect_to merchants_path, status: 404
-    end
+    flash[:alert] = "No Merchant found with id #{params[:id]}"
+    redirect_to merchants_path, status: 404
   end
 end

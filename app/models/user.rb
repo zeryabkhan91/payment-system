@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  include UserAuth
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
@@ -21,6 +23,6 @@ class User < ApplicationRecord
   private
 
   def set_merchant_fields
-    self.password = Devise.friendly_token[0, 20] unless password
+    self.password = Devise.friendly_token[0, 20] if password.blank?
   end
 end

@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 module TransactionStateMachine
+  extend ActiveSupport::Concern
 
   def self.included(base)
     base.send(:include, AASM)
-    
+
     base.send(:aasm, column: 'status') do
       state :draft, initial: true
       state :approved

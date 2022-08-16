@@ -1,0 +1,3 @@
+"name","email","role","password","description"
+"Admin","admin@gmail.com","admin","password","This is an Admin user"
+"Merchant","merchant@gmail.com","merchant","","This is an Merchant user"
