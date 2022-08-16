@@ -14,12 +14,6 @@ Rails.application.routes.draw do
         delete 'sign_out', to: 'sessions#destroy'
       end
     end
-    resources :transactions, only: [:index, :create, :update] do
-      member do
-        put :approve
-        put :refund
-        put :reverse
-      end
-    end
+    resources :transactions, only: [:index, :create, :update]
   end
 end
