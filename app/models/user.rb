@@ -8,7 +8,7 @@ class User < ApplicationRecord
   enum role: %i[admin merchant]
   enum status: %i[active inactive]
 
-  has_many :transactions
+  has_many :transactions, dependent: :restrict_with_error
 
   before_validation :set_merchant_fields
 

@@ -5,9 +5,6 @@ class Transaction < ApplicationRecord
 
   belongs_to :user
 
-  has_many :child_transactions, class_name: 'Transaction', foreign_key: :parent_id
-  belongs_to :parent, class_name: 'Transaction', foreign_key: :parent_id, optional: true
-
   before_validation :set_uuid
 
   validates_presence_of :amount, :uuid, :customer_email, :status
@@ -63,6 +60,5 @@ class Transaction < ApplicationRecord
     failed.type = type
     failed.status = 'error'
     failed.save
-    errors.add(:base, "#{type} can't")
   end
 end

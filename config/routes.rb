@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   root "home#index"
 
-  resources :merchants, only: [:index]
+  resources :merchants, only: [:index, :edit, :update, :destroy]
 
   namespace :api do
     scope module: 'devise', path: '' do

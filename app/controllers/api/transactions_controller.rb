@@ -15,7 +15,7 @@ module Api
     end
 
     def index
-      render json: Transaction.all
+      render json: { user: current_user, transactions: Transaction.all }
     end
 
     def update

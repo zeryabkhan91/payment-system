@@ -7,11 +7,7 @@ module Api
         self.resource = warden.authenticate!(auth_options)
         sign_in(resource_name, resource)
 
-        respond_to do |format|
-          format.json do
-            render json: { user: current_user, status: :ok }
-          end
-        end
+        render json: { user: current_user, status: :ok }
       end
 
       private

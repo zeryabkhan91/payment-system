@@ -6,6 +6,7 @@ table.table
       th scope="col"  Email
       th scope="col"  Status
       th scope="col"  Total Transaction
+      th scope="col"  Actions
   tbody
     - @merchants.each do |merchant|
         tr
@@ -14,3 +15,6 @@ table.table
           td = merchant.email
           td = merchant.status
           td = merchant.total_transactions
+          td
+            == link_to 'Edit', edit_merchant_path(merchant), class: 'mx-1'
+            == link_to 'Delete', merchant_path(merchant), data: { "turbo-method": :delete }, class: 'mx-1'
