@@ -1,20 +1,27 @@
-table.table
-  thead
-    tr
-      th scope="col"  id
-      th scope="col"  Name
-      th scope="col"  Email
-      th scope="col"  Status
-      th scope="col"  Total Transaction
-      th scope="col"  Actions
-  tbody
-    - @merchants.each do |merchant|
-        tr
-          th = merchant.id
-          td = merchant.name
-          td = merchant.email
-          td = merchant.status
-          td = merchant.transactions_count
-          td
-            == link_to 'Edit', edit_merchant_path(merchant), class: 'mx-1'
-            == link_to 'Delete', merchant_path(merchant), data: { "turbo-method": :delete }, class: 'mx-1'
+div.py-4
+  h4.text-center.mb-3
+    | Merchants List 
+  table.table
+    thead
+      tr
+        th scope="col"  id
+        th scope="col"  Name
+        th scope="col"  Email
+        th scope="col"  Status
+        th scope="col"  Total Transaction
+        th scope="col"  Actions
+    tbody
+      - if @merchants.present?
+        - @merchants.each do |merchant|
+          tr
+            th = merchant.id
+            td = merchant.name
+            td = merchant.email
+            td = merchant.status
+            td = merchant.transactions_count
+            td
+              == link_to 'Edit', edit_merchant_path(merchant), class: 'mx-1', id: "edit-#{merchant.id}"
+              == link_to 'Delete', merchant_path(merchant), data: { "turbo-method": :delete }, class: 'mx-1', id: "delete-#{merchant.id}"
+      - else
+        tr 
+          td.text-center.py-4 colspan="6" No Merchant found

@@ -12,9 +12,9 @@ class MerchantsController < ApplicationController
   def update
     if @merchant.update(merchant_params)
       flash[:notice] = 'Merchant updated Successfully'
-    else
-      flash[:alert] = @merchant.errors.full_messages.join
       redirect_to merchants_path
+    else
+      render :edit, status: 422
     end
   end
 
@@ -24,10 +24,14 @@ class MerchantsController < ApplicationController
     else
       flash[:alert] = @merchant.errors.full_messages.join
     end
-    redirect_to merchants_path
+    redirect_to merchants_path, status: :see_other
   end
 
   private
+
+  def merchant_params
+    params.require(:user).permit(:name, :email, :description)
+  end
 
   def set_merchant
     @merchant = User.merchants.find_by(id: params[:id])

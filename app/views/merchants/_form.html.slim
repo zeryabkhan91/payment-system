@@ -1,0 +1,19 @@
+= form_with model: @merchant, url: merchant_path(@merchant), method: :patch do |form|
+  div.form-group.w-50.mx-auto
+    div.py-2
+      = form.label :name
+      = form.text_field :name, class: 'form-control'
+      - @merchant.errors.full_messages_for(:name).each do |message|
+        div.text-danger
+          = message
+    div.py-2
+      = form.label :email
+      = form.text_field :email, class: 'form-control'
+      - @merchant.errors.full_messages_for(:email).each do |message|
+        div.text-danger
+          = message
+    div.py-2
+      = form.label :description
+      = form.text_area :description, class: 'form-control'
+    div.py-2
+      = form.submit 'Save', class: 'btn btn-dark'

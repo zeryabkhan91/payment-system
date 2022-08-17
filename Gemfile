@@ -52,11 +52,11 @@ gem 'aasm'
 gem 'bootstrap', '~> 5.1.3'
 gem 'devise'
 gem 'devise-jwt'
+gem 'draper'
 gem 'interactor', '~> 3.0'
 gem 'rack-cors'
 gem 'slim'
 gem 'whenever', require: false
-gem 'draper'
 
 # Use Active Storage variants
 # [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
@@ -65,6 +65,7 @@ gem 'draper'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'pry', '~> 0.13.1'
 end
 
@@ -83,6 +84,11 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
   gem 'webdrivers'
 end
