@@ -1,24 +1,43 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+  - 3.0.3
 
 * System dependencies
+  - rails 7.0.3
+  - postgresql
 
-* Configuration
 
-* Database creation
+* Project Setup
+  - Create 'master.key' file in '/config' directory
+  - Add following key in 'master.key' file
+  - 470b7b2ebf1b8007d9df4fd3f7212e25
 
-* Database initialization
+* Run these commands(In payment-system directory)
+```
+gem install bundler
+bundle install
+```
+* Database Setup
+  - Create '.env' file at project root
+  - Add your postgresql username and password in .env
+```
+  Example:
+    DB_USER_NAME = user
+    DB_PASSWORD = password
+```
+* Database Creation
+```
+rails db:create
+rails db:migrate
+```
+
+* To seed Admin and Merchant
+```
+rake import:users
+```
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+  bundle exec rspec
+```
