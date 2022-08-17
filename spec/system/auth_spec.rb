@@ -24,19 +24,4 @@ describe 'Session' do
       expect(page).to have_content('Welcome to payment System')
     end
   end
-
-  # describe 'merchant user' do
-  #   it "can't log in" do
-  #     visit new_user_session_path
-
-  #     within('#new_user') do
-  #       find('#user_email').fill_in with: merchant.email
-  #       find('#user_password').fill_in with: merchant.password
-  #     end
-
-  #     find('input[name="commit"]').click
-
-  #     expect(page).to have_content('You are not allowed to log in.')
-  #   end
-  # end
 end

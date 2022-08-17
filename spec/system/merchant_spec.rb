@@ -5,10 +5,6 @@ require 'system_helper'
 describe 'Merchant page' do
   let(:admin) { create(:user, :admin) }
 
-  before :example do
-    resize_window_desktop
-  end
-
   describe 'logged out user' do
     it 'should not access Merchants page' do
       visit merchants_path

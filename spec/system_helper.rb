@@ -7,7 +7,6 @@ RSpec.configure do |config|
   config.include ActionView::RecordIdentifier, type: :system
   config.include Devise::TestHelpers, type: :controller
   config.include Warden::Test::Helpers
-  # config.include AuthenticationTestHelpers::SystemHelpers, type: :system
 
   Capybara.configure do |capybara_config|
     capybara_config.server_port = 4000
@@ -61,10 +60,6 @@ RSpec.configure do |config|
   end
 
   config.before(:example, type: :system) do
-    # if ENV.fetch('RUBYIDE', nil) =~ /rubys-debug-browser/
-    #   driven_by :debug_browser
-    # else
     driven_by :headless_browser
-    # end
   end
 end

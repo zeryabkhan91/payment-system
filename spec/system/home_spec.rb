@@ -5,10 +5,6 @@ require 'system_helper'
 describe 'Home' do
   let(:admin) { create(:user, :admin) }
 
-  before :example do
-    resize_window_desktop
-  end
-
   describe 'logged out user' do
     it 'should not have access to homepage' do
       visit root_path
