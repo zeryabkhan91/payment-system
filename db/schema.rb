@@ -27,10 +27,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_16_085435) do
     t.string "customer_email"
     t.string "customer_phone"
     t.string "type", default: "AuthorizeTransaction"
-    t.integer "parent_id"
+    t.uuid "parent_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_transactions_on_parent_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 

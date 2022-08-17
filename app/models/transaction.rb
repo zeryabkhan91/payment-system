@@ -13,6 +13,6 @@ class Transaction < ApplicationRecord
   private
 
   def active_user
-    errors.add("Can't create Transaction for Inactive Merchant") if user.inactive?
+    errors.add(:user, "Can't create Transaction for Inactive Merchant") if user.inactive?
   end
 end

@@ -6,7 +6,7 @@ class CreateTransactions < ActiveRecord::Migration[7.0]
       t.string  :customer_email
       t.string  :customer_phone
       t.string  :type, default: 'AuthorizeTransaction'
-      t.integer :parent_id
+      t.references :parent, type: :uuid, index: true
       t.references :user 
 
       t.timestamps

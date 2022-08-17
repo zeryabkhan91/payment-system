@@ -5,7 +5,8 @@ module UserAuth
 
   included do
     def active_for_authentication?
-      super && admin? && active?
+      # super && admin? && active?
+      super
     end
 
     def inactive_message

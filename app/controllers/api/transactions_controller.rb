@@ -8,7 +8,7 @@ module Api
       if @transaction.save
         render json: @transaction
       else
-        render json: @transaction.errors.full_messages, status: 422
+        render json: { error: @transaction.errors.full_messages }, status: 422
       end
     end
 
@@ -28,7 +28,7 @@ module Api
     private
 
     def transaction_params
-      params.require(:transaction).permit(:name, :amount, :customer_name, :customer_email, :user_id)
+      params.require(:transaction).permit(:amount, :customer_phone, :customer_email, :user_id)
     end
 
     def state_params

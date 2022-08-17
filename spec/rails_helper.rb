@@ -26,6 +26,7 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
   config.include ResponsiveHelpers
+  config.include RequestHelpers
 
   Capybara.default_max_wait_time = 2
 end
