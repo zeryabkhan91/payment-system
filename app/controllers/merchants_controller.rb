@@ -4,7 +4,7 @@ class MerchantsController < ApplicationController
   before_action :set_merchant, except: [:index]
 
   def index
-    @merchants = User.merchants
+    @merchants = UserDecorator.decorate_collection(User.merchants)
   end
 
   def edit; end

@@ -16,10 +16,6 @@ class User < ApplicationRecord
 
   scope :merchants, -> { where(role: 'merchant') }
 
-  def total_transactions
-    transactions.count
-  end
-
   private
 
   def set_merchant_fields

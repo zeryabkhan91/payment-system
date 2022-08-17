@@ -14,7 +14,7 @@ table.table
           td = merchant.name
           td = merchant.email
           td = merchant.status
-          td = merchant.total_transactions
+          td = merchant.transactions_count
           td
             == link_to 'Edit', edit_merchant_path(merchant), class: 'mx-1'
             == link_to 'Delete', merchant_path(merchant), data: { "turbo-method": :delete }, class: 'mx-1'
