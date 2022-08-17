@@ -64,7 +64,7 @@ RSpec.configure do |config|
     # if ENV.fetch('RUBYIDE', nil) =~ /rubys-debug-browser/
     #   driven_by :debug_browser
     # else
-      driven_by :headless_browser
+    driven_by :headless_browser
     # end
   end
 end

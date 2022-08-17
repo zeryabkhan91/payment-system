@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'Active merchant' do
@@ -8,7 +10,7 @@ describe 'Active merchant' do
 
   context 'try to create transaction' do
     it 'should returns HTTP status 200' do
-      post "/api/transactions", params: {
+      post '/api/transactions', params: {
         transaction: {
           name: Faker::Name.name,
           customer_email: Faker::Internet.email,
@@ -79,7 +81,7 @@ describe 'Inactive merchant: POST /api/transaction' do
 
   context 'try to create transaction' do
     it 'should returns HTTP status 422' do
-      post "/api/transactions", params: {
+      post '/api/transactions', params: {
         transaction: {
           name: Faker::Name.name,
           customer_email: Faker::Internet.email,
